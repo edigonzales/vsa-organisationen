@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/10/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/10/modelMap https://cayenne.apache.org/schema/10/modelMap.xsd"
+	 project-version="10">
+	<property name="defaultPackage" value="ch.so.agi.vsa.cayenne"/>
+	<db-entity name="organisation">
+		<db-attribute name="T_Id" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="2000000000"/>
+		<db-attribute name="T_Ili_Tid" type="VARCHAR" length="200"/>
+		<db-attribute name="astatus" type="VARCHAR" isMandatory="true" length="255"/>
+		<db-attribute name="auid" type="VARCHAR" length="12"/>
+		<db-attribute name="bemerkung" type="VARCHAR" length="255"/>
+		<db-attribute name="bezeichnung" type="VARCHAR" isMandatory="true" length="255"/>
+		<db-attribute name="gemeindenummer" type="INTEGER" length="2000000000"/>
+		<db-attribute name="kurzbezeichnung" type="VARCHAR" length="12"/>
+		<db-attribute name="letzte_aenderung" type="VARCHAR" isMandatory="true" length="2000000000"/>
+		<db-attribute name="organisationstyp" type="VARCHAR" isMandatory="true" length="255"/>
+	</db-entity>
+	<obj-entity name="Organisation" className="ch.so.agi.vsa.cayenne.Organisation" dbEntityName="organisation">
+		<obj-attribute name="astatus" type="java.lang.String" db-attribute-path="astatus"/>
+		<obj-attribute name="auid" type="java.lang.String" db-attribute-path="auid"/>
+		<obj-attribute name="bemerkung" type="java.lang.String" db-attribute-path="bemerkung"/>
+		<obj-attribute name="bezeichnung" type="java.lang.String" db-attribute-path="bezeichnung"/>
+		<obj-attribute name="gemeindenummer" type="java.lang.Integer" db-attribute-path="gemeindenummer"/>
+		<obj-attribute name="kurzbezeichnung" type="java.lang.String" db-attribute-path="kurzbezeichnung"/>
+		<obj-attribute name="letzteAenderung" type="java.lang.String" db-attribute-path="letzte_aenderung"/>
+		<obj-attribute name="organisationstyp" type="java.lang.String" db-attribute-path="organisationstyp"/>
+		<obj-attribute name="tIliTid" type="java.lang.String" db-attribute-path="T_Ili_Tid"/>
+	</obj-entity>
+</data-map>
