@@ -18,3 +18,11 @@ java -jar /Users/stefan/apps/ili2gpkg-4.9.0-aarch64/ili2gpkg-4.9.0.jar --dbfile 
 
 Ggf die beiden XML-Dateien löschen, falls man nichts an der DB geändert hat, sondern nur in der Konfiguration im Maven-Plugin.
 
+## Entwicklung
+
+### Run 
+
+```
+./mvnw -Dspring-boot.run.profiles=dev
+```
+

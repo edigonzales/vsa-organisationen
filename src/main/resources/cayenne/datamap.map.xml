@@ -16,6 +16,22 @@
 		<db-attribute name="letzte_aenderung" type="VARCHAR" isMandatory="true" length="2000000000"/>
 		<db-attribute name="organisationstyp" type="VARCHAR" isMandatory="true" length="255"/>
 	</db-entity>
+	<db-entity name="organisation_organisationstyp">
+		<db-attribute name="description" type="VARCHAR" length="2000000000"/>
+		<db-attribute name="dispName" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="iliCode" type="VARCHAR" isMandatory="true" length="1024"/>
+		<db-attribute name="inactive" type="INTEGER" isMandatory="true" length="2000000000"/>
+		<db-attribute name="itfCode" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="2000000000"/>
+		<db-attribute name="seq" type="INTEGER" length="2000000000"/>
+	</db-entity>
+	<db-entity name="organisation_status">
+		<db-attribute name="description" type="VARCHAR" length="2000000000"/>
+		<db-attribute name="dispName" type="VARCHAR" isMandatory="true" length="250"/>
+		<db-attribute name="iliCode" type="VARCHAR" isMandatory="true" length="1024"/>
+		<db-attribute name="inactive" type="INTEGER" isMandatory="true" length="2000000000"/>
+		<db-attribute name="itfCode" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="2000000000"/>
+		<db-attribute name="seq" type="INTEGER" length="2000000000"/>
+	</db-entity>
 	<obj-entity name="Organisation" className="ch.so.agi.vsa.cayenne.Organisation" dbEntityName="organisation">
 		<obj-attribute name="astatus" type="java.lang.String" db-attribute-path="astatus"/>
 		<obj-attribute name="auid" type="java.lang.String" db-attribute-path="auid"/>
@@ -26,5 +42,19 @@
 		<obj-attribute name="letzteAenderung" type="java.lang.String" db-attribute-path="letzte_aenderung"/>
 		<obj-attribute name="organisationstyp" type="java.lang.String" db-attribute-path="organisationstyp"/>
 		<obj-attribute name="tIliTid" type="java.lang.String" db-attribute-path="T_Ili_Tid"/>
+	</obj-entity>
+	<obj-entity name="OrganisationOrganisationstyp" className="ch.so.agi.vsa.cayenne.OrganisationOrganisationstyp" dbEntityName="organisation_organisationstyp">
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="description"/>
+		<obj-attribute name="dispName" type="java.lang.String" db-attribute-path="dispName"/>
+		<obj-attribute name="iliCode" type="java.lang.String" db-attribute-path="iliCode"/>
+		<obj-attribute name="inactive" type="int" db-attribute-path="inactive"/>
+		<obj-attribute name="seq" type="java.lang.Integer" db-attribute-path="seq"/>
+	</obj-entity>
+	<obj-entity name="OrganisationStatus" className="ch.so.agi.vsa.cayenne.OrganisationStatus" dbEntityName="organisation_status">
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="description"/>
+		<obj-attribute name="dispName" type="java.lang.String" db-attribute-path="dispName"/>
+		<obj-attribute name="iliCode" type="java.lang.String" db-attribute-path="iliCode"/>
+		<obj-attribute name="inactive" type="int" db-attribute-path="inactive"/>
+		<obj-attribute name="seq" type="java.lang.Integer" db-attribute-path="seq"/>
 	</obj-entity>
 </data-map>

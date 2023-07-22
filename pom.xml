@@ -148,6 +148,8 @@
             <!--<schema>PUBLIC</schema>-->
             <!-- <excludeTable>T_ILI2DB*.*</excludeTable>-->
             <includeTable>organisation</includeTable>
+            <includeTable>organisation_organisationstyp</includeTable>
+            <includeTable>organisation_status</includeTable>
           </dbimport>
         </configuration>
         <dependencies>
