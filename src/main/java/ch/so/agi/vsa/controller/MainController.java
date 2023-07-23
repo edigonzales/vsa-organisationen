@@ -36,7 +36,9 @@ public class MainController {
         //List<Organisation> organisationen = ObjectSelect.query(Organisation.class).pageSize(50).orderBy(Organisation.BEZEICHNUNG.getName()).select(objectContext);
         List<Organisation> organisationen = ObjectSelect.query(Organisation.class).select(objectContext);
         for (Organisation organisation : organisationen) {
-            //log.info(organisation.getBezeichnung() + " -- " + organisation.getAuid());
+            log.info(organisation.getBezeichnung() + " -- " + organisation.getTIliTid());
+            log.info(Organisation.T_ILI_TID.getName());
+            log.info(organisation.getLetzteAenderung());
         }
         
      

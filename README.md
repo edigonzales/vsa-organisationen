@@ -1,5 +1,11 @@
 # vsa-organisationen
 
+## todo
+- Sortieren: Berücksichtigen Umlaute
+- Datum als Typ?
+- Pageing
+- Filtern / Suchen
+
 ## XTF in Datenbank importieren
 
 ```
