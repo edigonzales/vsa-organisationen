@@ -1,7 +1,6 @@
 package ch.so.agi.vsa.views.list;
 
 import ch.so.agi.vsa.cayenne.Organisation;
-import ch.so.agi.vsa.data.entity.Contact;
 import ch.so.agi.vsa.data.service.OrganisationService;
 
 import java.time.LocalDate;
