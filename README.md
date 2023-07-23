@@ -5,6 +5,8 @@
 - Datum als Typ?
 - Pageing
 - Filtern / Suchen
+- Excel
+- Dialog mit XTF-Objekt?
 
 ## XTF in Datenbank importieren
 
