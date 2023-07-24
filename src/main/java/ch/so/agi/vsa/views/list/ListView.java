@@ -9,6 +9,9 @@ import java.time.format.FormatStyle;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.lang.CharSequence;
 
 
@@ -19,6 +22,7 @@ import com.vaadin.flow.component.grid.Grid.Column;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.provider.ConfigurableFilterDataProvider;
 import com.vaadin.flow.data.renderer.LocalDateRenderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
@@ -32,15 +36,25 @@ public class ListView extends VerticalLayout {
 
     OrganisationService organisationService;
     
-    public ListView(OrganisationService organisationService) {
+    private OrganisationFilter organisationFilter = new OrganisationFilter();
+
+    private OrganisationDataProvider dataProvider;
+
+    private ConfigurableFilterDataProvider<Organisation, Void, OrganisationFilter> filterDataProvider;
+
+    
+    public ListView(OrganisationService organisationService, OrganisationDataProvider dataProvider) {
         this.organisationService = organisationService;
+        this.dataProvider = dataProvider;
+        
+        filterDataProvider = dataProvider.withConfigurableFilter();
         
         addClassName("list-view"); 
         setSizeFull();
         configureGrid(); 
 
         add(getToolbar(), grid);
-        updateList();
+        //updateList();
     }
 
     private void configureGrid() {
@@ -82,13 +96,22 @@ public class ListView extends VerticalLayout {
 //        grid.addColumn(contact -> contact.getStatus().getName()).setHeader("Status"); 
 //        grid.addColumn(contact -> contact.getCompany().getName()).setHeader("Company");
         grid.getColumns().forEach(col -> col.setAutoWidth(true)); 
+        
+        
+        grid.setItems(filterDataProvider);
+
     }
 
     private HorizontalLayout getToolbar() {
         filterText.setPlaceholder("Filter by name...");
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY); 
-
+        filterText.addValueChangeListener(e -> {
+            System.out.println(e.getValue());
+            organisationFilter.setSearchTerm(e.getValue());
+            filterDataProvider.setFilter(organisationFilter);
+        });
+        
         Button addContactButton = new Button("Add contact");
 
         var toolbar = new HorizontalLayout(filterText, addContactButton); 

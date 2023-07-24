@@ -22,7 +22,7 @@ public class OrganisationService {
 //            return contactRepository.search(stringFilter);
 //        }
         
-        return ObjectSelect.query(Organisation.class).orderBy(Organisation.BEZEICHNUNG.getName()).select(objectContext);
+        return ObjectSelect.query(Organisation.class).pageSize(50).orderBy(Organisation.BEZEICHNUNG.getName()).select(objectContext);
 
         
     }
